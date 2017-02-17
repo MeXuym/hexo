@@ -25,9 +25,9 @@ make.edges.equalTo(superview).with.insets(padding);
 ```
 - (void (^)(int))run
 {
-return ^(int value){
-NSLog(@"跑了%d米",value);
-};
+  return ^(int value){
+    NSLog(@"跑了%d米",value);
+  };
 }
 ```
 
@@ -50,10 +50,10 @@ humanObject.run(1); //输出 “跑了1米”
 //.h文件也要做相应改动
 - (Human *(^)(int))run
 {
-return ^ (int value){
-NSLog(@"跑了%d米",value); //要执行的操作
-return self;             //这一句是关键
-};
+  return ^ (int value){
+    NSLog(@"跑了%d米",value); //要执行的操作
+    return self;             //这一句是关键
+  };
 }
 ```
 

@@ -55,7 +55,7 @@ guideView.delegate = self;
 拿到当前点击的引导层的标识
 ```
 -(void)XYMGuideClick:(NSString*)guideName{
-NSLog(@"%@",guideName);
+   NSLog(@"%@",guideName);
 }
 ```
 
