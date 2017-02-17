@@ -1,0 +1,607 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="动画," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在之前的项目中，应产品的要求，需要实现自定义的push和pop动画。最近比较有空，于是把这一部分抽出来
+
+要做的事情1.我们会自定义一个自己的动画类2.自定义自己的一个NavigationController（要使用自定义的push动画，就继承这个类）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pushAnimation">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/pushAnimation/index.html">
+<meta property="og:site_name" content="Xuym">
+<meta property="og:description" content="在之前的项目中，应产品的要求，需要实现自定义的push和pop动画。最近比较有空，于是把这一部分抽出来
+
+要做的事情1.我们会自定义一个自己的动画类2.自定义自己的一个NavigationController（要使用自定义的push动画，就继承这个类）">
+<meta property="og:image" content="https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/pushAnimation/push.gif">
+<meta property="og:updated_time" content="2017-02-16T03:10:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pushAnimation">
+<meta name="twitter:description" content="在之前的项目中，应产品的要求，需要实现自定义的push和pop动画。最近比较有空，于是把这一部分抽出来
+
+要做的事情1.我们会自定义一个自己的动画类2.自定义自己的一个NavigationController（要使用自定义的push动画，就继承这个类）">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/pushAnimation/push.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> pushAnimation | Xuym </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Xuym</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                pushAnimation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-01T23:47:44+08:00" content="2016-12-01">
+              2016-12-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在之前的项目中，应产品的要求，需要实现自定义的push和pop动画。最近比较有空，于是把这一部分抽出来</p>
+<p><img src="https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/pushAnimation/push.gif" alt="pushAnimation"></p>
+<h2 id="要做的事情"><a href="#要做的事情" class="headerlink" title="要做的事情"></a>要做的事情</h2><p>1.我们会自定义一个自己的动画类<br>2.自定义自己的一个NavigationController（要使用自定义的push动画，就继承这个类）<br><a id="more"></a></p>
+<h2 id="自定义动画类"><a href="#自定义动画类" class="headerlink" title="自定义动画类"></a>自定义动画类</h2><p>我们先实现一个push自定义动画类姑且叫做XYMAnimation，它实现UIViewControllerAnimatedTransitioning协议，用来定义一个非交互动画（就是动画过程中没交互）</p>
+<h3 id="遵守协议"><a href="#遵守协议" class="headerlink" title="遵守协议"></a>遵守协议</h3><p>动画类.h文件遵守协议。还有两个属性分别表示当前的navigationController，和动画的类型（push或者pop)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#define ScreenWidth [UIScreen mainScreen].bounds.size.width</div><div class="line">#define ScreenHeight [UIScreen mainScreen].bounds.size.height</div><div class="line"></div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface XYMAnimation : NSObject&lt;UIViewControllerAnimatedTransitioning&gt;</div><div class="line"></div><div class="line">@property(nonatomic,assign)UINavigationControllerOperation  navigationOperation;</div><div class="line">@property(nonatomic,weak)UINavigationController * navigationController;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="m文件中实现两个协议方法"><a href="#m文件中实现两个协议方法" class="headerlink" title=".m文件中实现两个协议方法"></a>.m文件中实现两个协议方法</h3><p>动画持续的时间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (NSTimeInterval)transitionDuration:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext</div><div class="line">&#123;</div><div class="line">  return 3.0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>动画的内容，动画怎么做完全取决于你，下面是我写的平移动画，你还可以缩放和旋转动画。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext</div><div class="line">&#123;</div><div class="line">  //目的ViewController</div><div class="line">  UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line"></div><div class="line">  //起始ViewController</div><div class="line">  UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];</div><div class="line"></div><div class="line">  //添加toView到上下文</div><div class="line">  [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];</div><div class="line"></div><div class="line">  //自定义动画</div><div class="line">  toViewController.view.transform = CGAffineTransformMakeTranslation(320, 568);</div><div class="line">  [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^&#123;</div><div class="line"></div><div class="line">    fromViewController.view.transform = CGAffineTransformMakeTranslation(-320, -568);</div><div class="line">    toViewController.view.transform = CGAffineTransformIdentity;</div><div class="line"></div><div class="line">  &#125; completion:^(BOOL finished) &#123;</div><div class="line"></div><div class="line">    fromViewController.view.transform = CGAffineTransformIdentity;</div><div class="line">    // 声明过渡结束时调用 completeTransition: 这个方法</div><div class="line">   [transitionContext completeTransition:![transitionContext transitionWasCancelled]];</div><div class="line">  &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="自定义NavigationController"><a href="#自定义NavigationController" class="headerlink" title="自定义NavigationController"></a>自定义NavigationController</h2><p>继承自UINavigationController类，遵守 UINavigationControllerDelegate 协议。<br>XYMPushAnmation就是前面自定义的动画类，这里要用到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@interface RootViewController ()&lt;UINavigationControllerDelegate&gt;</div><div class="line"></div><div class="line">@property (nonatomic,strong)XYMPushAnmation *xymPushAnmation;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<h3 id="m文件中创建自定义动画实例"><a href="#m文件中创建自定义动画实例" class="headerlink" title=".m文件中创建自定义动画实例"></a>.m文件中创建自定义动画实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (XYMPushAnmation *)xymPushAnmation</div><div class="line">&#123;</div><div class="line">  if (_xymPushAnmation == nil) &#123;</div><div class="line">     _xymPushAnmation = [[XYMPushAnmation alloc]init];</div><div class="line">  &#125;</div><div class="line">  return _xymPushAnmation;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line"></div><div class="line">  self.delegate = self;</div><div class="line">  _xymPushAnmation = [[XYMPushAnmation alloc] init];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="关键点：实现这一个代理方法，使用我们自定义的动画"><a href="#关键点：实现这一个代理方法，使用我们自定义的动画" class="headerlink" title="关键点：实现这一个代理方法，使用我们自定义的动画"></a>关键点：实现这一个代理方法，使用我们自定义的动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//这个代理方法里面使用我们的自定义的动画</div><div class="line">- (nullable id &lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:(UINavigationController *)navigationController</div><div class="line">animationControllerForOperation:(UINavigationControllerOperation)operation</div><div class="line">fromViewController:(UIViewController *)fromVC</div><div class="line">toViewController:(UIViewController *)toVC  NS_AVAILABLE_IOS(7_0)</div><div class="line">&#123;</div><div class="line">  self.xymPushAnmation.navigationController = self;      //当前这个navigationController使用这个动画</div><div class="line">  self.xymPushAnmation.navigationOperation = operation;  //operation可以知道是在做push还是pop</div><div class="line">  return self.xymPushAnmation;                           //使用我们的自定义动画</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>Demo：<a href="https://github.com/MeXuym/PushPopAnimation" target="_blank" rel="external">github地址</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/动画/" rel="tag">#动画</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/24/实现如masonry的链式语法/" rel="next" title="实现如masonry的链式语法">
+                <i class="fa fa-chevron-left"></i> 实现如masonry的链式语法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/08/非全部导航栏显示的导航动画问题/" rel="prev" title="非全部导航栏显示的导航动画问题">
+                非全部导航栏显示的导航动画问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/avatar/2016.jpg"
+               alt="Xuym" />
+          <p class="site-author-name" itemprop="name">Xuym</p>
+          <p class="site-description motion-element" itemprop="description">Xuym’sBlog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#要做的事情"><span class="nav-number">1.</span> <span class="nav-text">要做的事情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义动画类"><span class="nav-number">2.</span> <span class="nav-text">自定义动画类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遵守协议"><span class="nav-number">2.1.</span> <span class="nav-text">遵守协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#m文件中实现两个协议方法"><span class="nav-number">2.2.</span> <span class="nav-text">.m文件中实现两个协议方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义NavigationController"><span class="nav-number">3.</span> <span class="nav-text">自定义NavigationController</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m文件中创建自定义动画实例"><span class="nav-number">3.1.</span> <span class="nav-text">.m文件中创建自定义动画实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键点：实现这一个代理方法，使用我们自定义的动画"><span class="nav-number">3.2.</span> <span class="nav-text">关键点：实现这一个代理方法，使用我们自定义的动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">4.</span> <span class="nav-text">Demo</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xuym</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
