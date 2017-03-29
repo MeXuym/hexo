@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mysql,问题记录," />
+  <meta name="keywords" content="轮子,Python," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="今天想在自己mac下的mysql建个表测试下python脚本，发现我的mysql启动不了。不是和之前一样start然后提示success,而是Starting MySQL…。一段时间后就提示：The server quit without updating PID file根据它的提示，我修改了这个文件的读写权限，然后start,报错依旧。google娘说问题可能有很多种：">
+<meta name="description" content="最近都在用python做各种各样的事情帮运营的妹子减轻工作量。微信运营群的管理和数据统计，操作excel的各种小脚本。最近则是希望能定时每天往微信运营群里发运营消息，然后就有了这个小脚本。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【问题记录】mysql提示The server quit without updating PID">
-<meta property="og:url" content="http://yoursite.com/2017/01/16/【问题记录】mysql提示The server quit without updating PID file/index.html">
+<meta property="og:title" content="python定时任务">
+<meta property="og:url" content="http://yoursite.com/2017/03/29/python定时任务/index.html">
 <meta property="og:site_name" content="Xuym">
-<meta property="og:description" content="今天想在自己mac下的mysql建个表测试下python脚本，发现我的mysql启动不了。不是和之前一样start然后提示success,而是Starting MySQL…。一段时间后就提示：The server quit without updating PID file根据它的提示，我修改了这个文件的读写权限，然后start,报错依旧。google娘说问题可能有很多种：">
-<meta property="og:updated_time" content="2017-03-14T09:38:53.000Z">
+<meta property="og:description" content="最近都在用python做各种各样的事情帮运营的妹子减轻工作量。微信运营群的管理和数据统计，操作excel的各种小脚本。最近则是希望能定时每天往微信运营群里发运营消息，然后就有了这个小脚本。">
+<meta property="og:updated_time" content="2017-03-29T08:06:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【问题记录】mysql提示The server quit without updating PID">
-<meta name="twitter:description" content="今天想在自己mac下的mysql建个表测试下python脚本，发现我的mysql启动不了。不是和之前一样start然后提示success,而是Starting MySQL…。一段时间后就提示：The server quit without updating PID file根据它的提示，我修改了这个文件的读写权限，然后start,报错依旧。google娘说问题可能有很多种：">
+<meta name="twitter:title" content="python定时任务">
+<meta name="twitter:description" content="最近都在用python做各种各样的事情帮运营的妹子减轻工作量。微信运营群的管理和数据统计，操作excel的各种小脚本。最近则是希望能定时每天往微信运营群里发运营消息，然后就有了这个小脚本。">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> 【问题记录】mysql提示The server quit without updating PID | Xuym </title>
+  <title> python定时任务 | Xuym </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +241,7 @@
             
             
               
-                【问题记录】mysql提示The server quit without updating PID
+                python定时任务
               
             
           </h1>
@@ -253,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-16T11:41:28+08:00" content="2017-01-16">
-              2017-01-16
+            <time itemprop="dateCreated" datetime="2017-03-29T15:36:48+08:00" content="2017-03-29">
+              2017-03-29
             </time>
           </span>
 
@@ -267,8 +267,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -300,15 +300,10 @@
       
 
       
-        <p>今天想在自己mac下的mysql建个表测试下python脚本，发现我的mysql启动不了。<br>不是和之前一样start然后提示success,而是Starting MySQL…。<br>一段时间后就提示：The server quit without updating PID file<br>根据它的提示，我修改了这个文件的读写权限，然后start,报错依旧。<br>google娘说问题可能有很多种：<br><a id="more"></a></p>
-<h3 id="1-可能是-usr-local-mysql-data-xxx-pid文件没有写的权限"><a href="#1-可能是-usr-local-mysql-data-xxx-pid文件没有写的权限" class="headerlink" title="1.可能是/usr/local/mysql/data/xxx.pid文件没有写的权限"></a>1.可能是/usr/local/mysql/data/xxx.pid文件没有写的权限</h3><p>只是我一开始尝试办法，但是没有效果。可以尝试执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown -R mysql:mysql /usr/local/mysql/data</div><div class="line">chmod -R 755 /usr/local/mysql/data</div></pre></td></tr></table></figure></p>
-<p>然后重新启动</p>
-<h3 id="2-可能已经存在mysql进程"><a href="#2-可能已经存在mysql进程" class="headerlink" title="2.可能已经存在mysql进程"></a>2.可能已经存在mysql进程</h3><p>我的问题是这个，已经有mysql进程（该不会是我前几天start了mysql一直没关吧！）<br>ps -ef|grep mysqld<br>查看是否有mysqld进程，有的话kill掉<br>kill -9 进程号</p>
-<h3 id="3-可能是二次安装mysql。"><a href="#3-可能是二次安装mysql。" class="headerlink" title="3.可能是二次安装mysql。"></a>3.可能是二次安装mysql。</h3><p>可能是第二次在机器上安装mysql，有残余数据影响了服务的启动。<br>解决方法：去mysql的数据目录/data看看，如果存在mysql-bin.index，删除掉。</p>
-<h3 id="4-mysql在启动时没有指定配置文件"><a href="#4-mysql在启动时没有指定配置文件" class="headerlink" title="4.mysql在启动时没有指定配置文件"></a>4.mysql在启动时没有指定配置文件</h3><p>mysql在启动时没有指定配置文件时会使用/etc/my.cnf配置文件，请打开这个文件查看在[mysqld]节下有没有指定数据目录(datadir)。<br>解决方法：请在[mysqld]下设置这一行：datadir = /usr/local/mysql/data</p>
-<h3 id="5-skip-federated字段问题"><a href="#5-skip-federated字段问题" class="headerlink" title="5.skip-federated字段问题"></a>5.skip-federated字段问题</h3><p>解决方法：检查一下/etc/my.cnf文件中有没有没被注释掉的skip-federated字段，如果有就立即注释掉吧。</p>
-<h3 id="6-错误日志目录不存在"><a href="#6-错误日志目录不存在" class="headerlink" title="6.错误日志目录不存在"></a>6.错误日志目录不存在</h3><p>解决方法：使用“chown” “chmod”命令赋予mysql所有者及权限</p>
-<p>参考链接：<a href="http://blog.rekfan.com/articles/186.html" target="_blank" rel="external">mysql提示The server quit without updating PID file</a></p>
+        <p>最近都在用python做各种各样的事情帮运营的妹子减轻工作量。<br>微信运营群的管理和数据统计，操作excel的各种小脚本。<br>最近则是希望能定时每天往微信运营群里发运营消息，然后就有了这个小脚本。<br><a id="more"></a></p>
+<h3 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><p>大概的思路是用while来当做一个runloop，然后里面的每一次循环都间隔一段时间（now到所定时间的时间差）达到定时的目的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def func():</div><div class="line">    while True:</div><div class="line">        # 每一次的循环操作开始前计算sleep时间</div><div class="line">        # 代码 #</div><div class="line"></div><div class="line">        time.sleep(delta.seconds)</div><div class="line">       </div><div class="line">        # 要定时执行的操作</div><div class="line">        # 代码 #</div></pre></td></tr></table></figure></p>
+<h3 id="每日定时计算"><a href="#每日定时计算" class="headerlink" title="每日定时计算"></a>每日定时计算</h3><p>使用python的datetime.timedelta来得到明天要定时的时间，得到的时间与当前时间相减就是sleep的时间。<br>计算sleep时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 假定明天开始，每天9点执行任务</div><div class="line">tomorrow = datetime.datetime.replace(datetime.datetime.now() + datetime.timedelta(days=1), </div><div class="line">hour=9, minute=0, second=0)</div><div class="line">delta = tomorrow - datetime.datetime.now()</div></pre></td></tr></table></figure></p>
+<h3 id="子线程上执行这个操作"><a href="#子线程上执行这个操作" class="headerlink" title="子线程上执行这个操作"></a>子线程上执行这个操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import threading</div><div class="line">t = threading.Thread(target=func)</div><div class="line">t.start()</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -330,9 +325,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag">#mysql</a>
+            <a href="/tags/轮子/" rel="tag">#轮子</a>
           
-            <a href="/tags/问题记录/" rel="tag">#问题记录</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
         </div>
       
@@ -341,17 +336,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/11/mac下修改mysql的root的密码/" rel="next" title="mac下修改mysql的root的密码">
-                <i class="fa fa-chevron-left"></i> mac下修改mysql的root的密码
+              <a href="/2017/01/16/【问题记录】mysql提示The server quit without updating PID file/" rel="next" title="【问题记录】mysql提示The server quit without updating PID">
+                <i class="fa fa-chevron-left"></i> 【问题记录】mysql提示The server quit without updating PID
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/29/python定时任务/" rel="prev" title="python定时任务">
-                python定时任务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -465,7 +456,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-可能是-usr-local-mysql-data-xxx-pid文件没有写的权限"><span class="nav-number">1.</span> <span class="nav-text">1.可能是/usr/local/mysql/data/xxx.pid文件没有写的权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-可能已经存在mysql进程"><span class="nav-number">2.</span> <span class="nav-text">2.可能已经存在mysql进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-可能是二次安装mysql。"><span class="nav-number">3.</span> <span class="nav-text">3.可能是二次安装mysql。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-mysql在启动时没有指定配置文件"><span class="nav-number">4.</span> <span class="nav-text">4.mysql在启动时没有指定配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-skip-federated字段问题"><span class="nav-number">5.</span> <span class="nav-text">5.skip-federated字段问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-错误日志目录不存在"><span class="nav-number">6.</span> <span class="nav-text">6.错误日志目录不存在</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑结构"><span class="nav-number">1.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每日定时计算"><span class="nav-number">2.</span> <span class="nav-text">每日定时计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子线程上执行这个操作"><span class="nav-number">3.</span> <span class="nav-text">子线程上执行这个操作</span></a></li></ol></div>
             
           </div>
         </section>
