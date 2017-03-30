@@ -235,7 +235,7 @@ mathjax:
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+#baidu_analytics: aad2211140dcef4274f920337782c07d
 
 # Duoshuo ShortName
 #duoshuo_shortname:
@@ -291,9 +291,9 @@ facebook_sdk:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  enable: true
+  app_id: lubvYzC9gbhewL64xJBhzXse-gzGzoHsz
+  app_key: p7TKWuq9NIvfdB4X3cjVgyLj
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
