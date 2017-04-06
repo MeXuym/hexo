@@ -14,6 +14,7 @@ tags: ["Python","轮子"]
 大概的思路是用while来当做一个runloop，然后里面的每一次循环都间隔一段时间（now到所定时间的时间差）达到定时的目的。
 ```
 def func():
+<!--more-->
     while True:
         # 每一次的循环操作开始前计算sleep时间
         # 代码 #
