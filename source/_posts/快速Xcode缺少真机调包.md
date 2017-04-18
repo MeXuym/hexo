@@ -1,5 +1,5 @@
 ---
-title: 快速Xcode缺少真机调包
+title: 快速解决Xcode缺少真机调包问题
 date: 2017-04-18 14:59:53
 categories: "Xcode"
 tags: ["Xcode","问题记录"]
@@ -12,17 +12,17 @@ tags: ["Xcode","问题记录"]
 <!--more-->
 ### 2.找不到真机调试包（不想升级Xcode）
 有时候会有网上中不到对应真机测试包的情况，比如我找不到 iOS 10.2.1(14D27) 的真机调试包，也还是有办法能够真机调试。
-![XYMScan](https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/XYMScan/XYMScan.gif)
 如图来到这个目录原本我只有IPhoneOS10.1.sdk,我们复制一份然后改名IPhoneOS10.2.sdk。
+![sdk.png](https://raw.githubusercontent.com/MeXuym/hexo/master/image/sdk.png)
 
 进入到IPhoneOS10.2.sdk，看到里面有一个SDKSettings.plist文件。
-![XYMScan](https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/XYMScan/XYMScan.gif)
+![plist.png](https://raw.githubusercontent.com/MeXuym/hexo/master/image/plist.png)
 
 修改里面所有包含版本的值为iOS 10.2（原本都是iOS 10.1的）
-![XYMScan](https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/XYMScan/XYMScan.gif)
+![plistKey.png](https://raw.githubusercontent.com/MeXuym/hexo/master/image/plistKey.png)
 
 然后来到DeviceSupport里面，复制一份原本存在的 10.1(14B72) 改名为 10.2.1(14D27) 即前面Xcode提示信息中的缺少的真机调试包名。
-![XYMScan](https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/XYMScan/XYMScan.gif)
+![support.png](https://raw.githubusercontent.com/MeXuym/hexo/master/image/support.png)
 
 然后重启Xcode,连接真机，等待Xcode，然后运行。这个做法可能会引发一些未知的bug,毕竟不是真的对应的真机调试包，最好还是升级Xcode。
 

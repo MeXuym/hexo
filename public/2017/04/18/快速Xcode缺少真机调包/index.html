@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="问题记录,Xcode," />
 
 
 
@@ -84,15 +84,24 @@
 
 
 
-<meta name="description" content="Xuym’sBlog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xuym">
-<meta property="og:url" content="http://yoursite.com/tags/mysql/index.html">
+<meta name="description" content="前些天有一些问题需要真机调试，因为一些原因只有一台测试机。它是iOS10.2.1，我的是Xcode8.1,没有这一个的真机调包。我们知道这时候可以升级下Xcode就可以真机调试新的iOS真机。有没有不升级Xcode又可以快速真机调试的办法？
+1.找对应的真机调试包比如当Xcode提示：This iPhone 6s is running iOS 10.2.1(14D27), which may no">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速解决Xcode缺少真机调包问题">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/快速Xcode缺少真机调包/index.html">
 <meta property="og:site_name" content="Xuym">
-<meta property="og:description" content="Xuym’sBlog">
+<meta property="og:description" content="前些天有一些问题需要真机调试，因为一些原因只有一台测试机。它是iOS10.2.1，我的是Xcode8.1,没有这一个的真机调包。我们知道这时候可以升级下Xcode就可以真机调试新的iOS真机。有没有不升级Xcode又可以快速真机调试的办法？
+1.找对应的真机调试包比如当Xcode提示：This iPhone 6s is running iOS 10.2.1(14D27), which may no">
+<meta property="og:image" content="https://raw.githubusercontent.com/MeXuym/hexo/master/image/sdk.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MeXuym/hexo/master/image/plist.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MeXuym/hexo/master/image/plistKey.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MeXuym/hexo/master/image/support.png">
+<meta property="og:updated_time" content="2017-04-18T08:15:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xuym">
-<meta name="twitter:description" content="Xuym’sBlog">
+<meta name="twitter:title" content="快速解决Xcode缺少真机调包问题">
+<meta name="twitter:description" content="前些天有一些问题需要真机调试，因为一些原因只有一台测试机。它是iOS10.2.1，我的是Xcode8.1,没有这一个的真机调包。我们知道这时候可以升级下Xcode就可以真机调试新的iOS真机。有没有不升级Xcode又可以快速真机调试的办法？
+1.找对应的真机调试包比如当Xcode提示：This iPhone 6s is running iOS 10.2.1(14D27), which may no">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MeXuym/hexo/master/image/sdk.png">
 
 
 
@@ -110,7 +119,7 @@
   };
 </script>
 
-  <title> 标签: mysql | Xuym </title>
+  <title> 快速解决Xcode缺少真机调包问题 | Xuym </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,74 +228,157 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        mysql
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/16/【问题记录】mysql提示The server quit without updating PID file/" itemprop="url">
-              
-                <span itemprop="name">【问题记录】mysql提示The server quit without updating PID</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-16T11:41:28+08:00"
-              content="2017-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/11/mac下修改mysql的root的密码/" itemprop="url">
-              
-                <span itemprop="name">mac下修改mysql的root的密码</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-11T11:41:28+08:00"
-              content="2017-01-11" >
-          01-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                快速解决Xcode缺少真机调包问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T14:59:53+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Xcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Xcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/18/快速Xcode缺少真机调包/" class="leancloud_visitors" data-flag-title="快速解决Xcode缺少真机调包问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前些天有一些问题需要真机调试，因为一些原因只有一台测试机。它是iOS10.2.1，我的是Xcode8.1,没有这一个的真机调包。我们知道这时候可以升级下Xcode就可以真机调试新的iOS真机。有没有不升级Xcode又可以快速真机调试的办法？</p>
+<h3 id="1-找对应的真机调试包"><a href="#1-找对应的真机调试包" class="headerlink" title="1.找对应的真机调试包"></a>1.找对应的真机调试包</h3><p>比如当Xcode提示：This iPhone 6s is running iOS 10.2.1(14D27), which may not be supported by this version of Xcode. 的时候。根据提示网上找 iOS 10.2.1(14D27) 的真机调试包，然后解压放到这个目录下面：/Applications/Xcode8.1.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport 。重启一下Xcode,等待它一下，这时候一般都可以了。<br><a id="more"></a></p>
+<h3 id="2-找不到真机调试包（不想升级Xcode）"><a href="#2-找不到真机调试包（不想升级Xcode）" class="headerlink" title="2.找不到真机调试包（不想升级Xcode）"></a>2.找不到真机调试包（不想升级Xcode）</h3><p>有时候会有网上中不到对应真机测试包的情况，比如我找不到 iOS 10.2.1(14D27) 的真机调试包，也还是有办法能够真机调试。<br>如图来到这个目录原本我只有IPhoneOS10.1.sdk,我们复制一份然后改名IPhoneOS10.2.sdk。<br><img src="https://raw.githubusercontent.com/MeXuym/hexo/master/image/sdk.png" alt="sdk.png"></p>
+<p>进入到IPhoneOS10.2.sdk，看到里面有一个SDKSettings.plist文件。<br><img src="https://raw.githubusercontent.com/MeXuym/hexo/master/image/plist.png" alt="plist.png"></p>
+<p>修改里面所有包含版本的值为iOS 10.2（原本都是iOS 10.1的）<br><img src="https://raw.githubusercontent.com/MeXuym/hexo/master/image/plistKey.png" alt="plistKey.png"></p>
+<p>然后来到DeviceSupport里面，复制一份原本存在的 10.1(14B72) 改名为 10.2.1(14D27) 即前面Xcode提示信息中的缺少的真机调试包名。<br><img src="https://raw.githubusercontent.com/MeXuym/hexo/master/image/support.png" alt="support.png"></p>
+<p>然后重启Xcode,连接真机，等待Xcode，然后运行。这个做法可能会引发一些未知的bug,毕竟不是真的对应的真机调试包，最好还是升级Xcode。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/问题记录/" rel="tag">#问题记录</a>
+          
+            <a href="/tags/Xcode/" rel="tag">#Xcode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/python监控exe小脚本/" rel="next" title="python监控exe小脚本">
+                <i class="fa fa-chevron-left"></i> python监控exe小脚本
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -294,6 +386,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -313,8 +409,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://raw.githubusercontent.com/MeXuym/hexoSource/master/_posts/avatar/2016.jpg"
@@ -364,6 +469,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-找对应的真机调试包"><span class="nav-number">1.</span> <span class="nav-text">1.找对应的真机调试包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-找不到真机调试包（不想升级Xcode）"><span class="nav-number">2.</span> <span class="nav-text">2.找不到真机调试包（不想升级Xcode）</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -460,6 +576,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
