@@ -36,7 +36,6 @@ def _format_addr(s):
 我们日常使用的邮箱一般都有自己的smtp服务，比我我这里用的163邮箱，对应的smtp_server是'smtp.163.com'。
 ```
 # 发送接收方信息
-我们日常使用的邮箱一般都有自己的smtp服务，比我这里用的163邮箱，对应的smtp_server是'smtp.163.com'。
 from_addr = 'm15913143122@163.com'
 password = 'XXXXXXXXX'
 to_addr = '506255560@qq.com'
